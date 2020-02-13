@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 services:
   api:
     build:
@@ -10,14 +10,9 @@ services:
     links:
       - db
     environment:
-      - SERVER_PORT=8000
-      - NODE_ENV=development
-      - POSTGRES_USERNAME=admin
-      - POSTGRES_PASSWORD=test123
-      - POSTGRES_PORT=5432
-      - POSTGRES_HOST=db
-      - POSTGRES_DATABASE=membership
       - CHOKIDAR_USEPOLLING=true
+    env_file:
+      - .env
     volumes:
       - /usr/src/app/node_modules
       - .:/usr/src/app
